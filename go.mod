@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
+	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/gofiber/fiber/v2 v2.52.0 // indirect
 	github.com/gofiber/jwt/v3 v3.3.10 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
@@ -20,5 +21,6 @@ require (
 	github.com/valyala/fasthttp v1.51.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
+	gorm.io/driver/mysql v1.5.2 // indirect
 	gorm.io/gorm v1.25.6 // indirect
 )
