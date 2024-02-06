@@ -16,8 +16,8 @@ func main(){
 	app.Use(cors.New())
 
 	routes.RouteInit(app)
-	
-	err := app.Listen(":4000")
+
+	err := app.Listen(":3000")
 	if err != nil{
 		log.Fatal(err)
 	}
