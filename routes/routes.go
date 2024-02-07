@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/adyfp24/golang-jwt-auth/handlers"
+	"github.com/adyfp24/golang-jwt-auth/middlewares"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -14,6 +15,7 @@ func RouteInit(app *fiber.App){
 	// auth route
 	r.Post("/register", handlers.Register)
 	r.Post("/login", handlers.Login)
+	r.Get("/protected", middlewares.AuthMiddleware() ,handlers.ProtectedRoute)
 
 	// protected route
 
