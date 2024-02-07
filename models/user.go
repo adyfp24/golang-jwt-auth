@@ -10,3 +10,12 @@ type User struct{
 	Password string	`json:"password" gorm:"not null"`
 	Email string `json:"email" gorm:"uniqueIndex;not null"`
 }
+
+type LoginRequest struct{
+	Username string 
+	Password string
+}
+
+type LoginResponse struct{
+	Token string
+}

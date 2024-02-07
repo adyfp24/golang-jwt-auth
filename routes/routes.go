@@ -13,6 +13,7 @@ func RouteInit(app *fiber.App){
 
 	// auth route
 	r.Post("/register", handlers.Register)
+	r.Post("/login", handlers.Login)
 
 	// protected route
 
