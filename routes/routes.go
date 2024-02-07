@@ -16,6 +16,7 @@ func RouteInit(app *fiber.App){
 	r.Post("/register", handlers.Register)
 	r.Post("/login", handlers.Login)
 	r.Get("/protected", middlewares.AuthMiddleware() ,handlers.ProtectedRoute)
+	r.Post("/logout", middlewares.AuthMiddleware(), handlers.Logout)
 
 	// protected route
 
