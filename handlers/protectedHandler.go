@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"github.com/adyfp24/golang-jwt-auth/database"
+	"github.com/adyfp24/golang-jwt-auth/models"
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v4"
 )
@@ -29,11 +31,19 @@ func ProtectedRoute(c *fiber.Ctx) error{
 	}
 
 	// Mengakses informasi pengguna dari klaim-klaim
-	userID := claims["user_id"].(float64)
+	id := claims["user_id"].(float64)
 	// Misalnya, untuk mengambil nilai user_id dari klaim-klaim
-
+	db := database.DB
+	var user models.User
+	err := db.Find(&user, id).Error
+	if err != nil {
+		return c.Status(500).JSON(fiber.Map{
+			"message": "Internal Server Error: Failed to parse user claims",
+			"error" : err.Error(),
+		})
+	}
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
 		"message": "Protected route accessed successfully",
-		"user_id": userID,
+		"data": user,
 	})
 }
